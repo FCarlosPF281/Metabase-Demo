@@ -4,8 +4,13 @@ export async function generateToken(dashboardId: number) {
   const payload = {
     resource: { dashboard: dashboardId },
     params: {},
-    exp: Math.round(Date.now() / 1000) + (10 * 60)
+    exp: Math.round(Date.now() / 1000) + (10 * 60) // 10 minutos
   }
   
-  return jwt.sign(payload, process.env.METABASE_SECRET_KEY!)
+  const token = jwt.sign(payload, process.env.METABASE_SECRET_KEY!)
+  
+  console.log('Generated token for dashboard:', dashboardId)
+  console.log('Token:', token)
+  
+  return token
 }
