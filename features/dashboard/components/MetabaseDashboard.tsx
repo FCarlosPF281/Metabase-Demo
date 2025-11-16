@@ -10,6 +10,6 @@ const MetabaseEmbed = dynamic(
   }
 )
 
-export function MetabaseDashboard({ dashboardId }: { dashboardId: number }) {
-  return <MetabaseEmbed dashboardId={dashboardId} />
+export function MetabaseDashboard({ dashboardId,questionId }: { dashboardId: number,questionId: number }) {
+  return <MetabaseEmbed dashboardId={dashboardId} questionId = {questionId}/>
 }
