@@ -9,10 +9,11 @@ export function MainLayout({ children }: MainLayoutProps) {
     return (
         <>
             <Header />
+            <Sidebar />
+
             <div className="flex">
-                <Sidebar />
                 <main className="flex-1 p-6 bg-incontrol">{children}</main>
             </div>
         </>
-    )
+    );
 }
