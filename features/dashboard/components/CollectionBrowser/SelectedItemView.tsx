@@ -1,6 +1,6 @@
 'use client';
 
-import { EditableDashboard, InteractiveQuestion } from '@metabase/embedding-sdk-react';
+import { EditableDashboard, InteractiveQuestion } from './components/SDKWrappers';
 import { ChevronLeft } from 'lucide-react';
 import { SelectedItem } from './types';
 

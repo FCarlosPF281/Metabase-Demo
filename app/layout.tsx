@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { MainLayout } from '@/components/layout/MainLayout';
+import { MetabaseAuthProvider } from '@/features/dashboard/context/MetabaseAuthContext';
 import './globals.css';
 
 
@@ -17,8 +18,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body >
-                {children}
-            </body>
+                    <MetabaseAuthProvider>
+                        {children}
+                    </MetabaseAuthProvider>
+                </body>
         </html>
     );
 }

@@ -19,7 +19,7 @@ export function CreateMenu({ onCreateDashboard, onCreateQuestion }: CreateMenuPr
         aria-label="Crear elemento"
       >
         <Plus className="w-4 h-4" />
-        Crear
+        Create
         <ChevronDown className="w-3 h-3" />
       </button>
 
@@ -40,7 +40,7 @@ export function CreateMenu({ onCreateDashboard, onCreateQuestion }: CreateMenuPr
                 Dashboard
               </div>
               <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                Crear un dashboard
+                Create a dashboard
               </div>
             </div>
           </button>
@@ -56,10 +56,10 @@ export function CreateMenu({ onCreateDashboard, onCreateQuestion }: CreateMenuPr
             </div>
             <div>
               <div className="font-semibold text-zinc-900 dark:text-white text-sm">
-                Pregunta
+                Question
               </div>
               <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                Crear una pregunta
+                Create a question
               </div>
             </div>
           </button>

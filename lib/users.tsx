@@ -28,4 +28,18 @@ export const users: User[] = [
         lastName: 'PAUCAR',
         group: 'Admin',
     },
+    {
+        id: 4,
+        email: 'raifhu2@intelica.com',
+        firstName: 'RAIF',
+        lastName: 'HU2',
+        group: 'RAIFHU2',
+    },
+    {
+        id: 5,
+        email: 'raifro2@intelica.com',
+        firstName: 'RAIF',
+        lastName: 'RO2',
+        group: 'RAIFRO2',
+    },
 ];

@@ -2,6 +2,7 @@
 
 import { InteractiveQuestion as MetabaseInteractiveQuestion } from '@metabase/embedding-sdk-react';
 import { memo } from 'react';
+import { ClientOnly } from '../../ClientOnly'
 
 interface QuestionEditorProps {
   currentCollectionId: number | 'root' | 'personal' | string;
@@ -15,12 +16,14 @@ interface QuestionEditorProps {
 export const QuestionEditor = memo(
   function QuestionEditor({ currentCollectionId, onSave }: QuestionEditorProps) {
     return (
-      <MetabaseInteractiveQuestion
-        questionId="new"
-        targetCollection={currentCollectionId}
-        isSaveEnabled={true}
-        onSave={onSave}
-      />
+      <ClientOnly>
+        <MetabaseInteractiveQuestion
+          questionId="new"
+          targetCollection={currentCollectionId}
+          isSaveEnabled={true}
+          onSave={onSave}
+        />
+      </ClientOnly>
     );
   },
   (prevProps, nextProps) => {

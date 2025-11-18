@@ -32,10 +32,10 @@ export function CreateQuestionModal({
                         </div>
                         <div>
                             <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
-                                Crear Pregunta
+                                Create Question
                             </h2>
                             <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                Construye una pregunta personalizada
+                                Build a custom question
                             </p>
                         </div>
                     </div>

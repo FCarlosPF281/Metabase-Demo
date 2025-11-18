@@ -72,11 +72,13 @@ export function Sidebar() {
         const isActive = item.active;
         const isBlocked = item.blocked;
 
-        const Wrapper: React.ElementType = item.href && !isBlocked ? Link : 'button';
-        const wrapperProps =
-            item.href && !isBlocked
-                ? { href: item.href }
-                : { type: 'button', onClick: () => toggleExpand(item.label, isBlocked) };
+        const onClick = () => toggleExpand(item.label, isBlocked)
+        const className = `
+                    w-full flex items-center gap-3 py-3 text-left transition-colors relative z-10
+                    ${level === 0 ? 'px-4 hover:bg-blue-50' : 'pl-12 hover:bg-blue-50'}
+                    ${isActive ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-700'}
+                    ${isBlocked ? 'opacity-50 cursor-not-allowed' : ''}
+                `
 
         return (
             <div key={item.label} className="relative">
@@ -90,27 +92,35 @@ export function Sidebar() {
                     </>
                 )}
 
-                <Wrapper
-                    {...wrapperProps}
-                    className={`
-                    w-full flex items-center gap-3 py-3 text-left transition-colors relative z-10
-                    ${level === 0 ? 'px-4 hover:bg-blue-50' : 'pl-12 hover:bg-blue-50'}
-                    ${isActive ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-700'}
-                    ${isBlocked ? 'opacity-50 cursor-not-allowed' : ''}
-                `}
-                >
-                    <span className={`shrink-0 ${isActive ? 'text-white' : 'text-gray-600'}`}>
-                        {item.icon}
-                    </span>
-
-                    <span className="flex-1 font-medium">{item.label}</span>
-
-                    {hasChildren && (
-                        <span className={`mr-4 ${isActive ? 'text-white' : 'text-gray-400'}`}>
-                            {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                {item.href && !isBlocked ? (
+                    <Link href={item.href} className={className}>
+                        <span className={`shrink-0 ${isActive ? 'text-white' : 'text-gray-600'}`}>
+                            {item.icon}
                         </span>
-                    )}
-                </Wrapper>
+
+                        <span className="flex-1 font-medium">{item.label}</span>
+
+                        {hasChildren && (
+                            <span className={`mr-4 ${isActive ? 'text-white' : 'text-gray-400'}`}>
+                                {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                            </span>
+                        )}
+                    </Link>
+                ) : (
+                    <button type="button" onClick={onClick} className={className} disabled={isBlocked}>
+                        <span className={`shrink-0 ${isActive ? 'text-white' : 'text-gray-600'}`}>
+                            {item.icon}
+                        </span>
+
+                        <span className="flex-1 font-medium">{item.label}</span>
+
+                        {hasChildren && (
+                            <span className={`mr-4 ${isActive ? 'text-white' : 'text-gray-400'}`}>
+                                {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                            </span>
+                        )}
+                    </button>
+                )}
 
                 {hasChildren && isExpanded && (
                     <div className="bg-white">

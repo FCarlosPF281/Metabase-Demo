@@ -1,15 +1,17 @@
 'use client';
 
-import { EditableDashboard } from '@metabase/embedding-sdk-react';
+import { EditableDashboard } from './CollectionBrowser/components/SDKWrappers';
 import MetabaseProviderWrapper from './MetabaseProviderWrapper';
 import { useState } from 'react';
 
 interface MetabaseEmbedProps {
     dashboardId: number;
     questionId?: number;
+    /** optional alias to force which user token the provider should request */
+    providerAlias?: string;
 }
 
-export default function MetabaseEmbed({ dashboardId, questionId }: MetabaseEmbedProps) {
+export default function MetabaseEmbed({ dashboardId, questionId, providerAlias }: MetabaseEmbedProps) {
     // Asunción: la autenticación se realiza en la página de Login.
     // Aquí no intentamos loguear automáticamente; asumimos sesión activa.
     const [isAuthenticated] = useState(true);
@@ -43,7 +45,7 @@ export default function MetabaseEmbed({ dashboardId, questionId }: MetabaseEmbed
 
     return (
         <div className="space-y-8 ">
-            <MetabaseProviderWrapper>
+            <MetabaseProviderWrapper alias={providerAlias}>
                 {selectedDashboardId && (
                     <EditableDashboard
                         withTitle={false}
