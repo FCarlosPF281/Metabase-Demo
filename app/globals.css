@@ -1,37 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Metropolis';
-  src: url('/fonts/Metropolis-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
-:root {
-  --font-sans: 'Metropolis', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
 
-@theme inline {
-  --font-topbar: 'Lato', sans-serif;
-  --font-heading: var(--font-geist-sans);
-  --font-body: var(--font-geist-sans);
-}
+
 
 @layer base {
   * {
@@ -39,7 +11,6 @@
   }
   body {
     @apply bg-[#F2F2F5] text-gray-900; /* cambia bg-gray-50 por tu color */
-    font-family: var(--font-sans);
   }
 }
 

@@ -17,11 +17,13 @@ export const QuestionEditor = memo(
   function QuestionEditor({ currentCollectionId, onSave }: QuestionEditorProps) {
     return (
       <ClientOnly>
+        
         <MetabaseInteractiveQuestion
           questionId="new"
           targetCollection={currentCollectionId}
           isSaveEnabled={true}
           onSave={onSave}
+          
         />
       </ClientOnly>
     );

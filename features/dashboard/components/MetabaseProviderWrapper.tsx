@@ -258,7 +258,7 @@ export default function MetabaseProviderWrapper({ children, alias: propAlias }: 
 
   // Optional: build a theme via defineMetabaseTheme using env vars if available
   const IntelicaTheme = defineMetabaseTheme({
-    fontFamily: "Roboto",
+    fontFamily: "Lato",
 
     fontSize: "14px",
     lineHeight: "20px",
@@ -307,11 +307,11 @@ export default function MetabaseProviderWrapper({ children, alias: propAlias }: 
          DASHBOARD / CARDS
       ------------------------------ */
       dashboard: {
-        backgroundColor: "#FDFDFF",
-        gridBorderColor: "#D8DDEF",
+        backgroundColor: "#F2F3F5",
+        gridBorderColor: "#F2F3F5",
         card: {
           backgroundColor: "#FFFFFF",
-          border: "1px solid #D8DDEF",
+          border: "12px double #F2F3F5",
         }
       },
 
@@ -347,7 +347,7 @@ export default function MetabaseProviderWrapper({ children, alias: propAlias }: 
       ------------------------------ */
       cartesian: {
         padding: "8px 10px",
-        label: { fontSize: "12px" },
+        label: { fontSize: "10px" },
         splitLine: { lineStyle: { color: "#D8DDEF" } },
         goalLine: { label: { fontSize: "12px" } },
       },
