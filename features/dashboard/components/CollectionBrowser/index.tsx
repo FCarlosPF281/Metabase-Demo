@@ -1,12 +1,21 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { CollectionBrowser } from '@metabase/embedding-sdk-react';
+import dynamic from 'next/dynamic';
 import { SelectedItemView } from './SelectedItemView';
 import { CollectionHeader } from './CollectionHeader';
 import { CreateDashboardModal, CreateQuestionModal } from './modals';
 import { useCollectionNavigation, useCollectionModals } from './hooks';
 import { SelectedItem } from './types';
+
+// 🔹 Import dinámico de CollectionBrowser solo en cliente
+const CollectionBrowser = dynamic(
+  async () => {
+    const mod = await import('@metabase/embedding-sdk-react');
+    return mod.default?.CollectionBrowser ?? mod.CollectionBrowser;
+  },
+  { ssr: false }
+);
 
 export default function MetabaseCollectionBrowser() {
   const [selected, setSelected] = useState<SelectedItem | null>(null);
@@ -42,7 +51,7 @@ export default function MetabaseCollectionBrowser() {
         return;
       }
 
-      if (item?.model === 'dashboard' || item?.model === 'card') {
+      if (item?.model === 'dashboard' || item?.model === 'card' || item?.model === 'question') {
         setSelected(item as SelectedItem);
       }
     },
